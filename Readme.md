@@ -1,14 +1,14 @@
 # **Numpy Learning Repository**
 
-_**Mastering Numpy: Your Guide to Numerical Computing in Python**_
+ _**Numpy: Your Guide to Numerical Computing in Python**_
 
 ---
 
 ## **Introduction**
 
-This repository is a comprehensive guide to understanding and mastering **Numpy**, Python's library for numerical computation. Whether you're a beginner or an experienced developer, this repository contains practical examples, use cases, and advanced techniques to enhance your knowledge of Numpy.
+This repository is a comprehensive guide to understanding and besca **Numpy**, Python's library for numerical computation. Whether you're a beginner or developer, this repository contains practical examples, use cases, and advanced techniques to enhance your knowledge of Numpy.
 
-Dive into array operations, explore advanced concepts like broadcasting and linear algebra, and see how Numpy integrates with other tools in the Python data ecosystem.
+Dive into array operations, explore concepts like broadcasting  and see how Numpy integrates with other tools in the Python data ecosystem.
 
 ---
 
@@ -21,10 +21,9 @@ Dive into array operations, explore advanced concepts like broadcasting and line
 5.  [Use Cases](#use-cases)
 6.  [How to Use This Repository](#how-to-use-this-repository)
 7.  [Project Structure](#project-structure)
-8.  [Future Plans](#future-plans)
-9.  [Resources](#resources)
-10.  [Contributing](#contributing)
-11.  [License](#license)
+8.  [Resources](#resources)
+9.  [Contributing](#contributing)
+10.  [License](#license)
 
 ---
 
@@ -117,17 +116,6 @@ numpy-learning-repo/
 
 ---
 
-## **Future Plans**
-
-*   Add more advanced Numpy use cases such as:
-    *   Fourier Transforms.
-    *   Integration with TensorFlow and PyTorch.
-*   Create video tutorials for key Numpy concepts.
-*   Add beginner-friendly challenges and exercises.
-*   Explore Numpy's role in data engineering workflows.
-
----
-
 ## **Resources**
 
 *   Official Numpy Documentation
@@ -158,7 +146,7 @@ This project is licensed under the **MIT License**. See the `LICENSE` file for m
 ## **Author**
 
 **Panda (Kidus)**  
-Self-taught developer and aspiring data analyst.
+Self-taught developer
 
 > _“Unlocking the power of Numpy, one array at a time.”_
 
