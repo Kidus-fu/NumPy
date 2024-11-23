@@ -153,18 +153,12 @@ Self-taught developer and aspiring data analyst.
 
 bash
 
-Copy code
-
 `jupyter notebook`
 
 bash
 
-Copy code
-
 `pip install -r requirements.txt`
 
 bash
-
-Copy code
 
 `git clone https://github.com/your-username/numpy-learning-repo.git cd numpy-learning-repo`
