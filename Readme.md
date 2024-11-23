@@ -102,7 +102,18 @@ Real-world applications of Numpy:
 
 ## **Project Structure**
 
-`numpy-learning-repo/ ├── notebooks/                  # Jupyter notebooks with examples │   ├── 01-array-basics.ipynb   # Basics of Numpy arrays │   ├── 02-matrix-operations.ipynb   # Linear algebra operations │   ├── 03-statistics.ipynb     # Statistical computations │   └── ...                     # More notebooks coming soon ├── data/                       # Sample datasets for exercises ├── images/                     # Images used in README or notebooks ├── requirements.txt            # Python dependencies └── README.md                   # Repository overview`
+```
+numpy-learning-repo/
+├── notebooks/                  # Jupyter notebooks with examples
+│   ├── 01-array-basics   # Basics of Numpy arrays
+│   ├── 02-matrix-operations   # Linear algebra operations
+│   ├── 03-statistics    # Statistical computations
+│   └── ...                     # More notebooks coming soon
+├── data/                       # Sample datasets for exercises
+├── images/                     # Images used in README or notebooks
+├── requirements.txt            # Python dependencies
+└── README.md                   # Repository overview
+```
 
 ---
 
