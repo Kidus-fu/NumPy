@@ -1,0 +1,288 @@
+<!DOCTYPE html><html><head>
+      <title>03-statistics</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h3 id="03---statistics-in-numpy">03 - Statistics in NumPy </h3>
+<p>In this notebook, we will explore common statistical operations using NumPy, which will help you summarize and understand data distributions.</p>
+<h3 id="1-mean-average">1. <strong>Mean (Average)</strong> </h3>
+<p>The <strong>mean</strong> is just the average of all the numbers in a list. It tells you the "central" value of your data.</p>
+<h4 id="how-to-calculate-it">How to calculate it: </h4>
+<ul>
+<li>Add all the numbers together.</li>
+<li>Divide the sum by how many numbers there are.</li>
+</ul>
+<p>For example, let's say we have the numbers <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">1, 2, 3, 4, 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">5</span></span></span></span></span></strong>.</p>
+<p>To calculate the mean:</p>
+<ol>
+<li>Add them up: <strong>1 + 2 + 3 + 4 + 5 = 15</strong></li>
+<li>Divide by 5 (since there are 5 numbers): <strong>15 / 5 = 3</strong></li>
+</ol>
+<p>So, the <strong>mean</strong> is <strong>3</strong>.</p>
+<h4 id="why-is-it-useful">Why is it useful? </h4>
+<p>The mean helps summarize a set of data into a single number. It’s useful when you want to know the "average" value of something, like the average score of students in a class.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>import numpy as np
+
+data = np.array([1, 2, 3, 4, 5])
+
+# Mean
+mean_value = np.mean(data)
+print(f"Mean: {mean_value}")
+</code></pre><p>Output:</p>
+<p><code>Mean: 3.0</code></p>
+<ul>
+<li>The mean is calculated as the sum of all elements divided by the number of elements. In this case, (1 + 2 + 3 + 4 + 5) / 5 = 3.</li>
+</ul>
+<h3 id="2-median">2. <strong>Median</strong> </h3>
+<p>The <strong>median</strong> is the middle value of a sorted list of numbers. If there’s an even number of values, the median is the average of the two middle numbers.</p>
+<h4 id="how-to-calculate-it-1">How to calculate it: </h4>
+<ol>
+<li>Arrange the numbers in order.</li>
+<li>If there's an odd number of values, the middle one is the median.</li>
+<li>If there's an even number, find the average of the two middle numbers.</li>
+</ol>
+<p>For example, let's use <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">1, 2, 3, 4, 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">5</span></span></span></span></span></strong>:</p>
+<ul>
+<li>Sorted: <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">1, 2, 3, 4, 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">5</span></span></span></span></span></strong></li>
+<li>The middle value is <strong>3</strong>, so the median is <strong>3</strong>.</li>
+</ul>
+<p>For an even number set, like <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">1, 2, 3, 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span></span></span></span></span></strong>:</p>
+<ul>
+<li>Sorted: <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">1, 2, 3, 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span></span></span></span></span></strong></li>
+<li>The middle values are <strong>2</strong> and <strong>3</strong>, so the median is the average: <strong>(2 + 3) / 2 = 2.5</strong>.</li>
+</ul>
+<h4 id="why-is-it-useful-1">Why is it useful? </h4>
+<p>The median is useful when the data has extreme values (outliers). It’s less affected by very high or very low numbers, making it a good choice when you want a "central" value but without outliers skewing the result.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># Median
+median_value = np.median(data)
+print(f"Median: {median_value}")
+</code></pre><p>Output:</p>
+<p><code>Median: 3.0</code></p>
+<ul>
+<li>The median of <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">1, 2, 3, 4, 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">5</span></span></span></span></span> is 3, since it's the middle value.</li>
+</ul>
+<h3 id="3-mode-most-frequent-value">3. <strong>Mode (Most Frequent Value)</strong> </h3>
+<p>The <strong>mode</strong> is the number that appears most often in a dataset. If no number repeats, the dataset has <strong>no mode</strong>.</p>
+<h4 id="how-to-calculate-it-2">How to calculate it: </h4>
+<ul>
+<li>Look for the number that occurs the most times.</li>
+<li>If all numbers appear the same number of times, there’s no mode.</li>
+</ul>
+<p>For example, in <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">1, 2, 2, 3, 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span></span></span></span></span></strong>:</p>
+<ul>
+<li>The number <strong>2</strong> appears twice, so <strong>2</strong> is the mode.</li>
+</ul>
+<p>In <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">1, 2, 3, 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span></span></span></span></span></strong>, every number appears only once, so there is <strong>no mode</strong>.</p>
+<h4 id="why-is-it-useful-2">Why is it useful? </h4>
+<p>The mode is useful when you want to know which value occurs the most. For example, in a survey about favorite colors, the mode tells you the most popular color.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from scipy import stats
+
+# Mode
+mode_value = stats.mode(data)
+print(f"Mode: {mode_value.mode[0]}")
+</code></pre><p>Output:</p>
+<p><code>Mode: 1</code></p>
+<ul>
+<li>The mode is the value that appears most frequently in the dataset.</li>
+</ul>
+<h3 id="4-variance">4. <strong>Variance</strong> </h3>
+<p><strong>Variance</strong> tells you how spread out your data is. If the values in your data are very spread out from the mean, the variance will be high. If they are close to the mean, the variance will be low.</p>
+<h4 id="how-to-calculate-it-3">How to calculate it: </h4>
+<ol>
+<li>Find the <strong>mean</strong> of the data.</li>
+<li>Subtract the mean from each value to find the "difference."</li>
+<li>Square each difference (to get rid of negative numbers).</li>
+<li>Average those squared differences.</li>
+</ol>
+<p>For example, with <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">1, 2, 3, 4, 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">5</span></span></span></span></span></strong>:</p>
+<ol>
+<li>Mean is <strong>3</strong>.</li>
+<li>Differences from the mean: <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>−</mo><mn>2</mn><mo separator="true">,</mo><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">-2, -1, 0, 1, 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">−</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">−</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span></span></span></span></span></strong>.</li>
+<li>Squared differences: <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>4</mn><mo separator="true">,</mo><mn>1</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo separator="true">,</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">4, 1, 0, 1, 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span></span></span></span></span></strong>.</li>
+<li>Average the squared differences: <strong>(4 + 1 + 0 + 1 + 4) / 5 = 2</strong>.</li>
+</ol>
+<p>So, the <strong>variance</strong> is <strong>2</strong>.</p>
+<h4 id="why-is-it-useful-3">Why is it useful? </h4>
+<p>Variance gives a sense of how spread out the data is. A <strong>high variance</strong> means the values are far from the mean, while a <strong>low variance</strong> means they are close to the mean.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># Variance
+variance_value = np.var(data)
+print(f"Variance: {variance_value}")
+</code></pre><p>Output:</p>
+<p><code>Variance: 2.0</code></p>
+<ul>
+<li>Variance is the average of the squared differences from the mean. For example, the variance of the data <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">1, 2, 3, 4, 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">5</span></span></span></span></span> is 2.</li>
+</ul>
+<h3 id="5-standard-deviation">5. <strong>Standard Deviation</strong> </h3>
+<p>The <strong>standard deviation</strong> is just the square root of the variance. It’s another way to measure how spread out the data is, but it’s in the same units as the original data, making it easier to understand.</p>
+<h4 id="how-to-calculate-it-4">How to calculate it: </h4>
+<ol>
+<li>Calculate the variance (as we did earlier).</li>
+<li>Take the square root of the variance.</li>
+</ol>
+<p>For example, with <strong>variance = 2</strong>:</p>
+<ul>
+<li>The <strong>standard deviation</strong> is <strong>√2 ≈ 1.41</strong>.</li>
+</ul>
+<h4 id="why-is-it-useful-4">Why is it useful? </h4>
+<p>Standard deviation is easier to interpret than variance because it’s in the same units as the data. For example, if you're measuring people's heights in centimeters, the standard deviation tells you how much people's heights differ from the average height in centimeters.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># Standard Deviation
+std_dev_value = np.std(data)
+print(f"Standard Deviation: {std_dev_value}")
+</code></pre><p>Output:</p>
+<p><code>Standard Deviation: 1.4142135623730951</code></p>
+<ul>
+<li>Standard deviation is a more interpretable measure of the spread compared to variance because it is in the same units as the data.</li>
+</ul>
+<h3 id="6-minimum-and-maximum">6. <strong>Minimum and Maximum</strong> </h3>
+<p>The <strong>minimum</strong> is the smallest number, and the <strong>maximum</strong> is the largest number in a dataset.</p>
+<h4 id="how-to-calculate-it-5">How to calculate it: </h4>
+<ul>
+<li>The <strong>minimum</strong> is the lowest value.</li>
+<li>The <strong>maximum</strong> is the highest value.</li>
+</ul>
+<p>For example, with <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">1, 2, 3, 4, 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">5</span></span></span></span></span></strong>:</p>
+<ul>
+<li>Minimum: <strong>1</strong></li>
+<li>Maximum: <strong>5</strong></li>
+</ul>
+<h4 id="why-is-it-useful-5">Why is it useful? </h4>
+<p>Knowing the minimum and maximum values helps you understand the range of your data. It gives you a sense of the smallest and largest values, which can be useful when analyzing extremes.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># Minimum and Maximum
+min_value = np.min(data)
+max_value = np.max(data)
+
+print(f"Minimum: {min_value}")
+print(f"Maximum: {max_value}")
+</code></pre><p>Output:</p>
+<p><code>Minimum: 1 Maximum: 5</code></p>
+<ul>
+<li>The minimum value is 1 and the maximum value is 5.</li>
+</ul>
+<h3 id="7-percentiles">7. <strong>Percentiles</strong> </h3>
+<p>A <strong>percentile</strong> tells you the value below which a certain percentage of your data lies. For example, the <strong>50th percentile</strong> is the <strong>median</strong>, which is the middle value.</p>
+<h4 id="how-to-calculate-it-6">How to calculate it: </h4>
+<ul>
+<li>Find the value below which a certain percentage of the data falls. For instance, the 25th percentile means 25% of the data is less than that value.</li>
+</ul>
+<p>For example, in <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">1, 2, 3, 4, 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">5</span></span></span></span></span></strong>:</p>
+<ul>
+<li>The <strong>25th percentile</strong> is <strong>2</strong> (25% of the data is less than 2).</li>
+<li>The <strong>50th percentile (median)</strong> is <strong>3</strong>.</li>
+<li>The <strong>75th percentile</strong> is <strong>4</strong>.</li>
+</ul>
+<h4 id="why-is-it-useful-6">Why is it useful? </h4>
+<p>Percentiles are useful to understand the distribution of data. For example, the 90th percentile gives you a sense of what the "top 10%" looks like.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># Percentile (e.g., 25th, 50th, 75th)
+percentile_25 = np.percentile(data, 25)
+percentile_50 = np.percentile(data, 50)
+percentile_75 = np.percentile(data, 75)
+
+print(f"25th Percentile: {percentile_25}")
+print(f"50th Percentile (Median): {percentile_50}")
+print(f"75th Percentile: {percentile_75}")
+</code></pre><p>Output:</p>
+<p><code>25th Percentile: 2.0 50th Percentile (Median): 3.0 75th Percentile: 4.0</code></p>
+<ul>
+<li>Percentiles are useful for understanding the spread of data.</li>
+</ul>
+<h3 id="8-correlation">8. <strong>Correlation</strong> </h3>
+<p><strong>Correlation</strong> tells you how two sets of data are related. If two sets of data have a high correlation, it means when one set increases, the other tends to increase as well (or decrease, depending on the type of correlation).</p>
+<h4 id="how-to-calculate-it-7">How to calculate it: </h4>
+<ul>
+<li>Calculate a number between -1 and 1, where:
+<ul>
+<li><strong>1</strong> means a perfect positive correlation (both sets increase together),</li>
+<li><strong>-1</strong> means a perfect negative correlation (one set increases while the other decreases),</li>
+<li><strong>0</strong> means no correlation (the sets don't affect each other).</li>
+</ul>
+</li>
+</ul>
+<p>For example, with data <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">1, 2, 3, 4, 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">5</span></span></span></span></span></strong> and <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>5</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">5, 4, 3, 2, 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">5</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span></span></span></span></span></strong>:</p>
+<ul>
+<li>The correlation coefficient is <strong>-1</strong>, meaning they have a perfect negative correlation.</li>
+</ul>
+<h4 id="why-is-it-useful-7">Why is it useful? </h4>
+<p>Correlation is useful for understanding relationships between variables. For instance, you might want to know if a student’s study hours correlate with their exam scores.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>data_2 = np.array([5, 4, 3, 2, 1])
+
+# Correlation coefficient
+correlation = np.corrcoef(data, data_2)
+print(f"Correlation Coefficient:\n{correlation}")
+</code></pre><p>Output:</p>
+<p><code>Correlation Coefficient: [[ 1. -1.] [-1. &nbsp;1.]]</code></p>
+<ul>
+<li>The correlation coefficient ranges from -1 to 1, where:
+<ul>
+<li>1 means a perfect positive correlation,</li>
+<li>-1 means a perfect negative correlation,</li>
+<li>0 means no correlation.</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-cumulative-sum">9. <strong>Cumulative Sum</strong> </h3>
+<p>The <strong>cumulative sum</strong> is the running total of the values. It gives you a sense of how the sum changes as you move through the data.</p>
+<h4 id="how-to-calculate-it-8">How to calculate it: </h4>
+<ul>
+<li>Add each value one by one and keep a running total.</li>
+</ul>
+<p>For example, with <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">1, 2, 3, 4, 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">5</span></span></span></span></span></strong>:</p>
+<ul>
+<li>Cumulative sum: <strong><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>6</mn><mo separator="true">,</mo><mn>10</mn><mo separator="true">,</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">1, 3, 6, 10, 15</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">6</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">10</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">15</span></span></span></span></span></strong>.</li>
+</ul>
+<h4 id="why-is-it-useful-8">Why is it useful? </h4>
+<p>Cumulative sum is useful for tracking how something accumulates over time, such as tracking a running total of sales or expenses.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># Cumulative Sum
+cumsum_value = np.cumsum(data)
+print(f"Cumulative Sum: {cumsum_value}")
+</code></pre><p>Output:</p>
+<p><code>Cumulative Sum: [ 1 &nbsp;3 &nbsp;6 10 15]</code></p>
+<ul>
+<li>The cumulative sum is the sum of elements as you move through the array: <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>6</mn><mo separator="true">,</mo><mn>10</mn><mo separator="true">,</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">1, 3, 6, 10, 15</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">6</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">10</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">15</span></span></span></span></span>.</li>
+</ul>
+<h3 id="summary">Summary </h3>
+<p>In this notebook, we covered fundamental statistical operations in NumPy, including:</p>
+<ul>
+<li><strong>Mean</strong>: Average of values.</li>
+<li><strong>Median</strong>: Middle value of sorted data.</li>
+<li><strong>Mode</strong>: Most frequent value (using SciPy).</li>
+<li><strong>Variance</strong>: Measure of how much data is spread out.</li>
+<li><strong>Standard Deviation</strong>: Spread of data, in the same unit as the data.</li>
+<li><strong>Min/Max</strong>: Lowest and highest values.</li>
+<li><strong>Percentiles</strong>: Data values below which a given percentage of observations fall.</li>
+<li><strong>Correlation</strong>: Measure of relationship between two datasets.</li>
+<li><strong>Cumulative Sum</strong>: Running total of array elements.</li>
+</ul>
+<p>These statistical functions are crucial for understanding and analyzing data, and can be used in various fields such as data analysis, machine learning, economics, and more.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

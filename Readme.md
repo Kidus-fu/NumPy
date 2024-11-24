@@ -160,4 +160,4 @@ bash
 
 bash
 
-`git clone https://github.com/your-username/numpy-learning-repo.git cd numpy-learning-repo`
+`git clone https://github.com/Kidus-fu/numpy-learning-repo.git cd numpy-learning-repo`
